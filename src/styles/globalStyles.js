@@ -7,6 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body{
@@ -17,6 +18,7 @@ body{
     align-items: center;
     user-select: none;
     overflow: hidden;
+    
 }
 
 svg:hover{

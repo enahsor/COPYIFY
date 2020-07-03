@@ -21,6 +21,7 @@ const PlayerWrapper = styled(animated.div)`
     height: 100%;
     display: grid;
     grid-gap: 3px;
+    grid-template-columns: repeat(3, 33.33%);
     grid-template-areas:
         'HEADER HEADER HEADER'
         '... ... ...'

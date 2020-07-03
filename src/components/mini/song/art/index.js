@@ -11,7 +11,7 @@ const Image = styled.img`
 `
 
 export default function Art({ art }) {
-    return <Image src={art} />
+    return <Image src={art} alt='minified song cover' />
 }
 
 Art.propTypes = {

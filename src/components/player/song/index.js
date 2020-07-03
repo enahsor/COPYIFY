@@ -28,11 +28,13 @@ const Container = styled.div`
         align-items: center;
         width: 90%;
         grid-row: 2/3;
+        justify-self: start;
     }
     max-width: ${({ theme }) => theme.maxWidth};
 
     width: 100%;
     grid-area: SONG;
+    justify-self: center;
 `
 
 const BasicInfo = styled.div`
