@@ -48,13 +48,13 @@ const Lower = styled.div`
     opacity: 0.7;
 `
 
-export default function Item({ item, key, startPlaying }) {
+export default function Item({ item, startPlaying }) {
     const handleClick = () => {
         startPlaying(item)
     }
 
     return (
-        <Wrapper onClick={handleClick} key={key}>
+        <Wrapper onClick={handleClick}>
             <ArtInfo>
                 <Art art={item.cover} />
                 <Properties>
@@ -77,6 +77,5 @@ export default function Item({ item, key, startPlaying }) {
 
 Item.propTypes = {
     item: PropTypes.object,
-    key: PropTypes.number,
     startPlaying: PropTypes.func,
 }
