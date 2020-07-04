@@ -26,7 +26,7 @@ export default function Play() {
 
     useEffect(() => {
         playing ? audioObj.play() : audioObj.pause()
-    }, [playing, audioObj])
+    }, [playing])
 
     const dispatch = useDispatch()
     const handleClick = () => {
