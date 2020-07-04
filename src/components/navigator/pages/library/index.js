@@ -16,13 +16,25 @@ const Wrapper = styled.div`
 export default function Library() {
     const dispatch = useDispatch()
 
+    const audioObj = useSelector((state) => state.audioObj)
     const libSearchValue = useSelector(
         (state) => state.libSearchValue
     ).toLowerCase()
 
     const startPlaying = (song) => {
         dispatch(set({ currentlyPlaying: song }))
+        dispatch(set({ playing: true }))
+
+        if (!audioObj.src.includes(song.audio)) {
+            console.log('Changing song')
+            audioObj.src = song.audio
+            audioObj.load()
+            audioObj.play()
+        } else {
+            console.log('Not changing song')
+        }
     }
+
     const filterItems = (item) => {
         return (
             item.title.toLowerCase().includes(libSearchValue) ||

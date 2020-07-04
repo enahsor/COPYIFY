@@ -15,7 +15,7 @@ const data = [
         cover: '/images/brikpanbrik.jpg',
         liked: true,
         explicit: false,
-        audio: '/audio/Never.wav',
+        audio: '/audio/BrikPonBrik.mp3',
     },
     {
         title: 'Tuscan Leather',
@@ -24,7 +24,7 @@ const data = [
         cover: '/images/ntws.jpg',
         liked: false,
         explicit: true,
-        audio: '/audio/',
+        audio: '/audio/TuscanLeather.mp3',
     },
     {
         title: 'Bad Idea',
@@ -33,7 +33,7 @@ const data = [
         cover: '/images/badidea.jpg',
         liked: true,
         explicit: true,
-        audio: '/audio/',
+        audio: '/audio/BadIdea.mp3',
     },
     {
         title: 'LOVE AGAIN',
@@ -42,17 +42,9 @@ const data = [
         cover: '/images/casestudy.jpg',
         liked: true,
         explicit: false,
-        audio: '/audio/',
+        audio: '/audio/LoveAgain.mp3',
     },
-    {
-        title: 'Say Na',
-        album: 'RESET',
-        artistes: ['Moneybagg', 'J. Cole'],
-        cover: '/images/sayna.jpg',
-        liked: false,
-        explicit: true,
-        audio: '/audio/',
-    },
+
     {
         title: 'P*$$Y Fairy (OTW)',
         album: '',
@@ -60,7 +52,7 @@ const data = [
         cover: '/images/chillombo.jpg',
         liked: false,
         explicit: true,
-        audio: '/audio/',
+        audio: '/audio/Fairy.mp3',
     },
     {
         title: 'I Spy',
@@ -69,25 +61,7 @@ const data = [
         cover: '/images/ispy.png',
         liked: true,
         explicit: false,
-        audio: '/audio/',
-    },
-    {
-        title: 'Besame mucho',
-        album: "40 titres d'or",
-        artistes: ['Tino Rossi'],
-        cover: '/images/besamemucho.jpg',
-        liked: false,
-        explicit: true,
-        audio: '/audio/',
-    },
-    {
-        title: 'Not Coming Back',
-        album: '1123',
-        artistes: ['BJ The Chicago Kid', 'PJ Morton'],
-        cover: '/images/notcomingback.jpg',
-        liked: false,
-        explicit: false,
-        audio: '/audio/',
+        audio: '/audio/ISpy.mp3',
     },
 ]
 
