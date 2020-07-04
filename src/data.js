@@ -6,6 +6,16 @@ const data = [
         cover: '/images/never.jpg',
         liked: true,
         explicit: true,
+        audio: '/audio/Never.wav',
+    },
+    {
+        title: 'Brik Pan Brik',
+        album: '',
+        artistes: ['Skillibeng'],
+        cover: '/images/brikpanbrik.jpg',
+        liked: true,
+        explicit: false,
+        audio: '/audio/Never.wav',
     },
     {
         title: 'Tuscan Leather',
@@ -14,6 +24,7 @@ const data = [
         cover: '/images/ntws.jpg',
         liked: false,
         explicit: true,
+        audio: '/audio/',
     },
     {
         title: 'Bad Idea',
@@ -22,6 +33,7 @@ const data = [
         cover: '/images/badidea.jpg',
         liked: true,
         explicit: true,
+        audio: '/audio/',
     },
     {
         title: 'LOVE AGAIN',
@@ -30,6 +42,7 @@ const data = [
         cover: '/images/casestudy.jpg',
         liked: true,
         explicit: false,
+        audio: '/audio/',
     },
     {
         title: 'Say Na',
@@ -38,6 +51,7 @@ const data = [
         cover: '/images/sayna.jpg',
         liked: false,
         explicit: true,
+        audio: '/audio/',
     },
     {
         title: 'P*$$Y Fairy (OTW)',
@@ -46,6 +60,7 @@ const data = [
         cover: '/images/chillombo.jpg',
         liked: false,
         explicit: true,
+        audio: '/audio/',
     },
     {
         title: 'I Spy',
@@ -54,6 +69,7 @@ const data = [
         cover: '/images/ispy.png',
         liked: true,
         explicit: false,
+        audio: '/audio/',
     },
     {
         title: 'Besame mucho',
@@ -62,6 +78,7 @@ const data = [
         cover: '/images/besamemucho.jpg',
         liked: false,
         explicit: true,
+        audio: '/audio/',
     },
     {
         title: 'Not Coming Back',
@@ -70,6 +87,7 @@ const data = [
         cover: '/images/notcomingback.jpg',
         liked: false,
         explicit: false,
+        audio: '/audio/',
     },
 ]
 
