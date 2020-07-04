@@ -4,7 +4,6 @@ import Item from '../../item'
 import Search from './search'
 import data from '../../../../data'
 import { useSelector, useDispatch } from 'react-redux'
-import { useTransition, config } from 'react-spring'
 import { set } from '../../../../actions'
 
 const Wrapper = styled.div`
@@ -33,31 +32,16 @@ export default function Library() {
     }
 
     // eslint-disable-next-line react/prop-types
-    const createItems = ({ item, props, key }) => {
-        return (
-            <Item
-                item={item}
-                key={key}
-                props={props}
-                startPlaying={startPlaying}
-            />
-        )
+    const createItems = (item, key) => {
+        return <Item item={item} key={key} startPlaying={startPlaying} />
     }
 
     const filtered = data.filter(filterItems)
 
-    const itemsWithTransitions = useTransition(filtered, (item, key) => key, {
-        unique: true,
-        enter: { opacity: 1, width: '100%' },
-        leave: { opacity: 0, width: '0%' },
-        trail: 100 / filtered.length,
-        config: config.gentle,
-    })
-
     return (
         <Wrapper>
             <Search />
-            {itemsWithTransitions.map(createItems)}
+            {filtered.map(createItems)}
         </Wrapper>
     )
 }

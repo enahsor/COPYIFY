@@ -10,9 +10,8 @@ import Menu from './menu'
 //import PlayCount from './playcount'
 import Title from './title'
 import PropTypes from 'prop-types'
-import { animated } from 'react-spring'
 
-const Wrapper = styled(animated.div)`
+const Wrapper = styled.div`
     display: grid;
     margin: 20px 0;
     width: 100%;
@@ -49,13 +48,13 @@ const Lower = styled.div`
     opacity: 0.7;
 `
 
-export default function Item({ item, props, startPlaying }) {
+export default function Item({ item, key, startPlaying }) {
     const handleClick = () => {
         startPlaying(item)
     }
 
     return (
-        <Wrapper style={props} onClick={handleClick}>
+        <Wrapper onClick={handleClick} key={key}>
             <ArtInfo>
                 <Art art={item.cover} />
                 <Properties>
@@ -78,6 +77,6 @@ export default function Item({ item, props, startPlaying }) {
 
 Item.propTypes = {
     item: PropTypes.object,
-    props: PropTypes.object,
+    key: PropTypes.number,
     startPlaying: PropTypes.func,
 }
