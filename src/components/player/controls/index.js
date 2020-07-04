@@ -27,7 +27,7 @@ export default function Controls() {
         <Wrapper>
             <Shuffle />
             <Previous />
-            <Play playing={false} />
+            <Play />
             <Next />
             <Repeat />
         </Wrapper>

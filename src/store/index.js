@@ -15,6 +15,7 @@ const initialState = {
     libSearchValue: '',
     currentlyPlaying: {},
     savedSongs: [...data],
+    audioObj: new Audio(),
 }
 
 const store = createStore(

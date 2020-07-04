@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { ReactComponent as PlayIcon } from '../../../../svgs/play.svg'
 import { ReactComponent as PauseIcon } from '../../../../svgs/pause.svg'
@@ -22,6 +22,12 @@ const PauseWrapper = IconStyle(PauseIcon)
 
 export default function Play() {
     const playing = useSelector((state) => state.playing)
+    const audioObj = useSelector((state) => state.audioObj)
+
+    useEffect(() => {
+        playing ? audioObj.play() : audioObj.pause()
+    }, [playing])
+
     const dispatch = useDispatch()
     const handleClick = () => {
         dispatch(inverse({ playing }))
