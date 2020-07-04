@@ -55,17 +55,20 @@ export default function Song({ song }) {
     function getColorFromImage(imageRef) {
         return () => {
             const thief = new COLORTHIEF()
+            try {
+                const colorValues = thief.getColor(imageRef.current)
 
-            const colorValues = thief.getColor(imageRef.current)
+                const colorHex = `#${colorValues
+                    .map((x) => {
+                        let hex = x.toString(16)
+                        return hex.length === 1 ? '0' + hex : hex
+                    })
+                    .join('')}`
 
-            const colorHex = `#${colorValues
-                .map((x) => {
-                    let hex = x.toString(16)
-                    return hex.length === 1 ? '0' + hex : hex
-                })
-                .join('')}`
-
-            dispatch(set({ playerColor: colorHex }))
+                dispatch(set({ playerColor: colorHex }))
+            } catch (err) {
+                console.log(`Something went wrong: ${err}`)
+            }
         }
     }
 

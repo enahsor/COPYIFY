@@ -14,7 +14,7 @@ const InnerWrapper = styled.div`
     align-items: center;
 `
 const Wrapper = styled(animated.div)`
-    position: absolute;
+    position: fixed;
     background-color: ${({ theme }) => theme.terColor};
     width: calc(100%);
     overflow: hidden;
