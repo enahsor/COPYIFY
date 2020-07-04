@@ -1,5 +1,13 @@
 const data = [
     {
+        title: 'Never',
+        album: '',
+        artistes: ['Gyalkapone'],
+        cover: '/images/never.jpg',
+        liked: true,
+        explicit: true,
+    },
+    {
         title: 'Tuscan Leather',
         album: 'Nothing Was The Same',
         artistes: ['Drake'],
