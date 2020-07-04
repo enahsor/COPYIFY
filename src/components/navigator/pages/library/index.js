@@ -26,12 +26,9 @@ export default function Library() {
         dispatch(set({ playing: true }))
 
         if (!audioObj.src.includes(song.audio)) {
-            console.log('Changing song')
             audioObj.src = song.audio
             audioObj.load()
             audioObj.play()
-        } else {
-            console.log('Not changing song')
         }
     }
 
