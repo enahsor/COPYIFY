@@ -4,6 +4,7 @@ import { ReactComponent as PlayIcon } from '../../../../svgs/play.svg'
 import { ReactComponent as PauseIcon } from '../../../../svgs/pause.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { inverse } from '../../../../actions'
+import audioObj from '../../../../audio'
 
 const IconStyle = (Icon) => {
     return styled(Icon)`
@@ -22,7 +23,6 @@ const PauseWrapper = IconStyle(PauseIcon)
 
 export default function Play() {
     const playing = useSelector((state) => state.playing)
-    const audioObj = useSelector((state) => state.audioObj)
 
     useEffect(() => {
         playing ? audioObj.play() : audioObj.pause()

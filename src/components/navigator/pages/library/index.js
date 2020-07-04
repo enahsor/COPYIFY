@@ -5,6 +5,7 @@ import Search from './search'
 import data from '../../../../data'
 import { useSelector, useDispatch } from 'react-redux'
 import { set } from '../../../../actions'
+import audioObj from '../../../../audio'
 
 const Wrapper = styled.div`
     height: 100vh;
@@ -16,7 +17,6 @@ const Wrapper = styled.div`
 export default function Library() {
     const dispatch = useDispatch()
 
-    const audioObj = useSelector((state) => state.audioObj)
     const libSearchValue = useSelector(
         (state) => state.libSearchValue
     ).toLowerCase()
