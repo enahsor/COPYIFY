@@ -22,19 +22,28 @@ export default function Library() {
         (state) => state.libSearchValue
     ).toLowerCase()
 
-    const startPlaying = (song) => {
+    const startPlaying = async (song) => {
         dispatch(set({ currentlyPlaying: song }))
 
-        db.audio.get(song.audio, (item) => {
-            const fileName = item.path.split('/').pop()
-
-            const file = new File([item.blob], fileName)
-            const pathToFile = URL.createObjectURL(file)
-
-            audioObj.src = pathToFile
-            audioObj.load()
-            audioObj.play()
+        const found = await db.audio.get(song.audio, () => {
+            return true
         })
+
+        if (found) {
+            console.log('PLAYING')
+            db.audio.get(song.audio, (item) => {
+                const fileName = item.path.split('/').pop()
+
+                const file = new File([item.blob], fileName)
+                const pathToFile = URL.createObjectURL(file)
+
+                audioObj.src = pathToFile
+                audioObj.load()
+                audioObj.play()
+            })
+        } else {
+            console.log('NOT PLAYING')
+        }
 
         dispatch(set({ playing: true }))
         //audioObj.src = song.audio
