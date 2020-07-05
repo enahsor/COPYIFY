@@ -25,12 +25,13 @@ export default function Library() {
     const startPlaying = async (song) => {
         dispatch(set({ currentlyPlaying: song }))
 
-        const found = await db.audio.get(song.audio, () => {
-            return true
+        const found = await db.audio.get(song.audio, (item) => {
+            return item
         })
 
         if (found) {
-            console.log('PLAYING')
+            //USE LOCAL COPY
+            console.log('LOCAL COPY')
             db.audio.get(song.audio, (item) => {
                 const fileName = item.path.split('/').pop()
 
@@ -42,7 +43,39 @@ export default function Library() {
                 audioObj.play()
             })
         } else {
-            alert('STREAMING..')
+            //STREAM FILE HERE
+            console.log('STREAMING..')
+            fetch(song.audio)
+                .then((res) => {
+                    const reader = res.body.getReader()
+                    return new ReadableStream({
+                        start(controller) {
+                            return pump()
+
+                            function pump() {
+                                return reader.read().then(({ done, value }) => {
+                                    if (done) {
+                                        controller.close()
+                                        return
+                                    }
+                                    //Enqueue the next data chunk into our target stream
+                                    controller.enqueue(value)
+                                    return pump()
+                                })
+                            }
+                        },
+                    })
+                })
+
+                .then((stream) => new Response(stream))
+                .then((response) => response.blob())
+                .then((blob) => URL.createObjectURL(blob))
+                .then((url) => {
+                    audioObj.src = url
+                    audioObj.load()
+                    audioObj.play()
+                })
+                .catch((err) => console.error(`Something went wrong ${err}`))
         }
 
         dispatch(set({ playing: true }))
