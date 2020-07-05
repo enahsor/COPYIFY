@@ -1,17 +1,16 @@
 import Dexie from 'dexie'
 
+Dexie.delete('copyifyDB')
+    .then(() => {
+        console.log('Deleted')
+    })
+    .catch(() => {
+        //ignore for now
+    })
 const db = new Dexie('copyifyDB')
-db.version(2).stores({
+
+db.version(1).stores({
     audio: 'path, blob, type',
 })
-db.audio
-    .orderBy('path')
-    .delete()
-    .then((count) => {
-        console.log(`Deleted ${count}`)
-    })
-    .catch((err) => {
-        console.log(`Couldn't delete: ${err}`)
-    })
 
 export default db
