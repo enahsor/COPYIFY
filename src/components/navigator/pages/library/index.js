@@ -6,6 +6,7 @@ import data from '../../../../data'
 import { useSelector, useDispatch } from 'react-redux'
 import { set } from '../../../../actions'
 import audioObj from '../../../../audio'
+import db from '../../../../database'
 
 const Wrapper = styled.div`
     height: 100vh;
@@ -23,13 +24,22 @@ export default function Library() {
 
     const startPlaying = (song) => {
         dispatch(set({ currentlyPlaying: song }))
-        dispatch(set({ playing: true }))
 
-        if (!audioObj.src.includes(song.audio)) {
-            audioObj.src = song.audio
+        db.audio.get(song.audio, (item) => {
+            const fileName = item.path.split('/').pop()
+
+            const file = new File([item.blob], fileName)
+            const pathToFile = URL.createObjectURL(file)
+
+            audioObj.src = pathToFile
             audioObj.load()
             audioObj.play()
-        }
+        })
+
+        dispatch(set({ playing: true }))
+        //audioObj.src = song.audio
+        //audioObj.load()
+        //audioObj.play()
     }
 
     const filterItems = (item) => {

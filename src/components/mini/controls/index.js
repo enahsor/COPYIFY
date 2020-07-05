@@ -7,6 +7,7 @@ import { inverse } from '../../../actions'
 
 const Wrapper = styled.div`
     width: 10%;
+    max-width: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
