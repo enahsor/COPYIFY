@@ -42,7 +42,7 @@ export default function Library() {
                 audioObj.play()
             })
         } else {
-            console.log('NOT PLAYING')
+            alert('STREAMING..')
         }
 
         dispatch(set({ playing: true }))
