@@ -1,3 +1,3 @@
-const audioObj = new Audio()
+const audioCtx = new AudioContext({ latencyHint: 'playback' })
 
-export default audioObj
+export default audioCtx

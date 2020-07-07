@@ -5,8 +5,8 @@ import Search from './search'
 import data from '../../../../data'
 import { useSelector, useDispatch } from 'react-redux'
 import { set } from '../../../../actions'
-import audioObj from '../../../../audio'
-import db from '../../../../database'
+//import audioObj from '../../../../audio'
+//import db from '../../../../database'
 
 const Wrapper = styled.div`
     height: 100vh;
@@ -24,11 +24,23 @@ export default function Library() {
 
     const startPlaying = async (song) => {
         dispatch(set({ currentlyPlaying: song }))
+        //Testing streaming..
 
+        fetch(song.audio)
+            .then((res) => {
+                const reader = res.body.getReader()
+                console.log(reader)
+            })
+            .catch((err) => {
+                console.log(`Something went wrong ${err}`)
+            })
+
+        /*
         const found = await db.audio.get(song.audio, (item) => {
             return item
         })
 
+        
         if (found) {
             //USE LOCAL COPY
             console.log('LOCAL COPY')
@@ -48,32 +60,11 @@ export default function Library() {
             fetch(song.audio)
                 .then((res) => {
                     const reader = res.body.getReader()
-                    return new ReadableStream({
-                        start(controller) {
-                            return pump()
-
-                            function pump() {
-                                return reader.read().then(({ done, value }) => {
-                                    if (done) {
-                                        controller.close()
-                                        return
-                                    }
-                                    //Enqueue the next data chunk into our target stream
-                                    controller.enqueue(value)
-                                    return pump()
-                                })
-                            }
-                        },
+                    const stream = new ReadableStream({
+                        start(controller){
+                            // the following function handles each data chunk
+                        }
                     })
-                })
-
-                .then((stream) => new Response(stream))
-                .then((response) => response.blob())
-                .then((blob) => URL.createObjectURL(blob))
-                .then((url) => {
-                    audioObj.src = url
-                    audioObj.load()
-                    audioObj.play()
                 })
                 .catch((err) => console.error(`Something went wrong ${err}`))
         }
@@ -82,6 +73,7 @@ export default function Library() {
         //audioObj.src = song.audio
         //audioObj.load()
         //audioObj.play()
+        */
     }
 
     const filterItems = (item) => {
