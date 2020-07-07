@@ -28,8 +28,9 @@ export default function Library() {
 
         fetch(song.audio)
             .then((res) => {
-                const reader = res.body.getReader()
-                console.log(reader)
+                const tempAudio = new Audio(res.url)
+                tempAudio.load()
+                tempAudio.play()
             })
             .catch((err) => {
                 console.log(`Something went wrong ${err}`)
