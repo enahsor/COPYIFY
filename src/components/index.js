@@ -4,8 +4,8 @@ import Mini from './mini'
 import Navigator from './navigator/'
 import { GlobalStyles } from '../styles/globalStyles'
 import React, { useEffect } from 'react'
-import db from '../database'
-import data from '../data'
+//import db from '../database'
+//import data from '../data'
 
 const AppWrapper = styled.div`
     width: 100vw;
@@ -16,9 +16,10 @@ const AppWrapper = styled.div`
 
 function App() {
     useEffect(() => {
-        saveMediaToBrowser(data, db)
+        //saveMediaToBrowser(data, db)
     }, [])
 
+    /*
     async function saveMediaToBrowser(data, db) {
         const found = await db.audio.toArray((found) => {
             return found
@@ -40,7 +41,7 @@ function App() {
                 //console.log(`Something went wrong ${err}`)
             }
         })
-    }
+    }*/
 
     return (
         <>
