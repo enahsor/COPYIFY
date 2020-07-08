@@ -8,11 +8,13 @@ export const getData = (location) => {
             }
             return res.arrayBuffer()
         })
-        .then(async (buffer) => {
+        .then((buffer) => {
             var source = audioCtx.createBufferSource()
-            source.buffer = await audioCtx.decodeAudioData(buffer)
-            source.connect(audioCtx.destination)
-            return source
+            audioCtx.decodeAudioData(buffer, (decodedData) => {
+                source.buffer = decodedData
+                source.connect(audioCtx.destination)
+                source.start(0)
+            })
         })
         .catch((err) => {
             console.log(`Something went wrong ${err}`)
