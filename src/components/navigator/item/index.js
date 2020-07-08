@@ -50,7 +50,14 @@ const Lower = styled.div`
 
 export default function Item({ item, startPlaying }) {
     const handleClick = () => {
-        startPlaying(item)
+        const promise = startPlaying(item)
+        promise
+            .then((source) => {
+                source.start(0)
+            })
+            .catch((err) => {
+                console.log(`Couldn't play: ${err}`)
+            })
     }
 
     return (

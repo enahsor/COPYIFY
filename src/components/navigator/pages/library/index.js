@@ -5,7 +5,7 @@ import Search from './search'
 import data from '../../../../data'
 import { useSelector, useDispatch } from 'react-redux'
 import { set } from '../../../../actions'
-import audioObj from '../../../../audio'
+import { getData } from '../../../../audio'
 //import db from '../../../../database'
 
 const Wrapper = styled.div`
@@ -22,38 +22,11 @@ export default function Library() {
         (state) => state.libSearchValue
     ).toLowerCase()
 
-    var source
-    const getData = (song) => {
-        source = audioObj.createBufferSource()
-        return fetch(song.audio)
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error('HTTP error, status =  ' + res.status)
-                }
-                return res.arrayBuffer()
-            })
-            .then((buffer) => {
-                audioObj.decodeAudioData(buffer, (decodedData) => {
-                    source.buffer = decodedData
-                    source.connect(audioObj.destination)
-                })
-            })
-            .catch((err) => {
-                console.log(`Something went wrong ${err}`)
-            })
-    }
-
     const startPlaying = async (song) => {
         dispatch(set({ currentlyPlaying: song }))
         //Testing streaming..
 
-        getData(song)
-            .then(() => {
-                source.start(0)
-            })
-            .catch((err) => {
-                console.log(`Something went wrong: ${err}`)
-            })
+        return getData(song)
 
         /*
         const found = await db.audio.get(song.audio, (item) => {
