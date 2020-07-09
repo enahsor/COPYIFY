@@ -28,7 +28,7 @@ export default function Library() {
 
         fetch(song.audio)
             .then((res) => {
-                audioCtx.srcObject = res.url
+                audioCtx.src = res.url
                 audioCtx.play()
             })
             .catch((err) => {
