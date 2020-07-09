@@ -6,7 +6,7 @@ const data = [
         cover: '/images/never.jpg',
         liked: true,
         explicit: true,
-        audio: '/audio/Never.wav',
+        audio: '/audio/Never.ogg',
     },
     {
         title: 'Brik Pan Brik',
@@ -15,7 +15,7 @@ const data = [
         cover: '/images/brikpanbrik.jpg',
         liked: true,
         explicit: false,
-        audio: '/audio/BrikPonBrik.mp3',
+        audio: '/audio/BrikPonBrik.ogg',
     },
     {
         title: 'Tuscan Leather',
@@ -33,7 +33,7 @@ const data = [
         cover: '/images/badidea.jpg',
         liked: true,
         explicit: true,
-        audio: '/audio/BadIdea.mp3',
+        audio: '/audio/BadIdea.ogg',
     },
     {
         title: 'LOVE AGAIN',
