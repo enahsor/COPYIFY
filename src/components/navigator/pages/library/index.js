@@ -69,10 +69,6 @@ export default function Library() {
                 .catch((err) => console.error(`Something went wrong ${err}`))
         }
 
-        dispatch(set({ playing: true }))
-        //audioObj.src = song.audio
-        //audioObj.load()
-        //audioObj.play()
         */
     }
 

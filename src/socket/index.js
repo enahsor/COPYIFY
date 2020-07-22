@@ -15,8 +15,6 @@ const ctx = getCtx()
 const player = new Player(ctx)
 
 ss(client).on('sending', (stream) => {
-    player.init()
-    player.clearQueue()
     stream.on('data', async (byte) => {
         const data = new Data(ctx, byte)
         try {
@@ -27,3 +25,7 @@ ss(client).on('sending', (stream) => {
         }
     })
 })
+
+export function getTrack(trackid) {
+    client.emit('send-track', trackid)
+}

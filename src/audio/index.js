@@ -1,3 +1,6 @@
-const audioCtx = new Audio()
+const audio = new Audio()
+const ctx = new AudioContext()
 
-export default audioCtx
+export const getCtx = () => ctx
+
+export default audio

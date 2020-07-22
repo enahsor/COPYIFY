@@ -4,6 +4,8 @@ import Mini from './mini'
 import Navigator from './navigator/'
 import { GlobalStyles } from '../styles/globalStyles'
 import React, { useEffect } from 'react'
+// eslint-disable-next-line no-unused-vars
+import { client } from '../socket'
 //import db from '../database'
 //import data from '../data'
 
