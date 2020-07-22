@@ -26,7 +26,7 @@ export default function Library() {
     const startPlaying = async (song) => {
         dispatch(set({ currentlyPlaying: song }))
         //Testing streaming..
-        getTrack(song.audio)
+        getTrack(song.id)
 
         /*
         const found = await db.audio.get(song.audio, (item) => {

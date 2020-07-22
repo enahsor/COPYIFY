@@ -6,7 +6,7 @@ const data = [
         cover: '/images/never.jpg',
         liked: true,
         explicit: true,
-        audio: '/audio/Never.mp3',
+        id: '0',
     },
     {
         title: 'Brik Pan Brik',
@@ -15,7 +15,7 @@ const data = [
         cover: '/images/brikpanbrik.jpg',
         liked: true,
         explicit: false,
-        audio: '/audio/BrikPonBrik.mp3',
+        id: '1',
     },
     {
         title: 'Tuscan Leather',
@@ -24,7 +24,7 @@ const data = [
         cover: '/images/ntws.jpg',
         liked: false,
         explicit: true,
-        audio: '/audio/TuscanLeather.mp3',
+        id: '2',
     },
     {
         title: 'Bad Idea',
@@ -33,7 +33,7 @@ const data = [
         cover: '/images/badidea.jpg',
         liked: true,
         explicit: true,
-        audio: '/audio/BadIdea.mp3',
+        id: '3',
     },
     {
         title: 'LOVE AGAIN',
@@ -42,7 +42,7 @@ const data = [
         cover: '/images/casestudy.jpg',
         liked: true,
         explicit: false,
-        audio: '/audio/LoveAgain.mp3',
+        id: '4',
     },
 
     {
@@ -52,7 +52,7 @@ const data = [
         cover: '/images/chillombo.jpg',
         liked: false,
         explicit: true,
-        audio: '/audio/Fairy.mp3',
+        id: '5',
     },
     {
         title: 'I Spy',
@@ -61,7 +61,7 @@ const data = [
         cover: '/images/ispy.png',
         liked: true,
         explicit: false,
-        audio: '/audio/ISpy.mp3',
+        id: '6',
     },
 ]
 
