@@ -5,7 +5,8 @@ import Search from './search'
 import data from '../../../../data'
 import { useSelector, useDispatch } from 'react-redux'
 import { set } from '../../../../actions'
-import audioCtx from '../../../../audio'
+import { getCtx } from '../../../../audio'
+import { getTrack } from '../../../../socket'
 //import db from '../../../../database'
 
 const Wrapper = styled.div`
@@ -25,15 +26,7 @@ export default function Library() {
     const startPlaying = async (song) => {
         dispatch(set({ currentlyPlaying: song }))
         //Testing streaming..
-
-        fetch(song.audio)
-            .then((res) => {
-                audioCtx.src = res.url
-                audioCtx.play()
-            })
-            .catch((err) => {
-                console.log(`Something went wrong ${err}`)
-            })
+        getTrack(song.audio)
 
         /*
         const found = await db.audio.get(song.audio, (item) => {
