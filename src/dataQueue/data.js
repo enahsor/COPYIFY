@@ -22,7 +22,7 @@ export class Data {
             this.decoded = await this.ctx.decodeAudioData(this.buffer)
             return this.decoded
         } catch (err) {
-            throw 'Unable to decode audio data'
+            console.log('Unable to decode data')
         }
     }
 }
