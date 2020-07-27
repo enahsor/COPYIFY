@@ -18,10 +18,11 @@ ss(client).on('sending', (stream) => {
     stream.on('data', async (byte) => {
         const data = new Data(ctx, byte)
         try {
-            player.addToQueue(await data.decode())
-            //player.playAvailableSlices()
+            player.addData(await data.decode())
+            player.start()
+            player.play()
         } catch (err) {
-            //DO SOMETHING HERE
+            console.log(err)
         }
     })
 })
