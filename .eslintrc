@@ -16,6 +16,7 @@
     },
     "env": {
         "browser": true,
-        "jest": true
+        "jest": true,
+        "node": true
     }
 }

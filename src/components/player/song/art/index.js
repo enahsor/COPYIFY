@@ -19,13 +19,13 @@ const Image = styled.img`
 
 export default function Art({ art, getColor, marginBottom }) {
     const imageRef = useRef(null)
-
+    const extension = '.jpg'
     const onLoad = getColor ? getColor(imageRef) : () => {}
 
     return (
         <Image
             marginBottom={marginBottom}
-            src={art}
+            src={`${process.env.PUBLIC_URL}${art}${extension}`}
             alt={`music art cover`}
             draggable={false}
             ref={imageRef}
