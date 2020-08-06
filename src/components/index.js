@@ -17,6 +17,8 @@ const AppWrapper = styled.div`
 function App() {
     useEffect(() => {
         saveMediaToBrowser(data, db)
+
+        window.focus()
     }, [])
 
     async function saveMediaToBrowser(data, db) {
