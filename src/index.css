@@ -2,4 +2,5 @@
     font-family: 'ProximaNova';
     src: local('Proxima Nova'),
         url('./fonts/ProximaNova-Regular.otf') format('opentype');
+    font-display: swap;
 }
