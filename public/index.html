@@ -32,10 +32,37 @@
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
         <title>COPYIFY</title>
+        <style>
+            #root {
+                background-color: black;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            @keyframes loading {
+                from {
+                    transform: scale(0%);
+                }
+                to {
+                    transform: 100%;
+                }
+            }
+
+            .firstpaint {
+                animation-name: loading;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+            }
+        </style>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
+        <div id="root">
+            <img src="%PUBLIC_URL%/images/spotifylogo.png" class="firstpaint" />
+        </div>
         <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
