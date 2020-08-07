@@ -15,6 +15,34 @@ const Wrapper = styled.div`
         grid-row: 3/4;
         max-width: 1000px;
     }
+    display: flex;
+    align-items: center;
+    position: relative;
+`
+
+const Timer = styled.span`
+    color: white;
+    font-size: 13px;
+    opacity: 0.6;
+    position: absolute;
+    @media all and (min-width: ${queries.large}px) {
+        position: relative;
+        top: 0;
+    }
+    top: 10px;
+`
+
+const RightTimer = styled(Timer)`
+    @media all and (min-width: ${queries.large}px) {
+        margin-left: 15px;
+    }
+    right: 0;
+`
+
+const LeftTimer = styled(Timer)`
+    @media all and (min-width: ${queries.large}px) {
+        margin-right: 15px;
+    }
 `
 
 const SliderWrapper = styled(Slider)`
@@ -36,7 +64,9 @@ export default function Seeker() {
     return (
         <>
             <Wrapper>
+                <LeftTimer>0:00</LeftTimer>
                 <SliderWrapper min={0} max={100} />
+                <RightTimer>1:00</RightTimer>
             </Wrapper>
         </>
     )

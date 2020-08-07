@@ -5,14 +5,17 @@ import Search from './search'
 import data from '../../../../data'
 import { useSelector, useDispatch } from 'react-redux'
 import { set } from '../../../../actions'
-import audioObj from '../../../../audio'
-import db from '../../../../database'
 
 const Wrapper = styled.div`
     height: 100vh;
     padding: 20px 0px;
     overflow-y: auto;
     background-color: black;
+`
+
+const Items = styled.div`
+    height: 100vh;
+    overflow-x: hidden;
 `
 
 export default function Library() {
@@ -25,21 +28,7 @@ export default function Library() {
     const startPlaying = (song) => {
         dispatch(set({ currentlyPlaying: song }))
 
-        db.audio.get(song.audio, (item) => {
-            const fileName = item.path.split('/').pop()
-
-            const file = new File([item.blob], fileName)
-            const pathToFile = URL.createObjectURL(file)
-
-            audioObj.src = pathToFile
-            audioObj.load()
-            audioObj.play()
-        })
-
         dispatch(set({ playing: true }))
-        //audioObj.src = song.audio
-        //audioObj.load()
-        //audioObj.play()
     }
 
     const filterItems = (item) => {
@@ -60,7 +49,7 @@ export default function Library() {
     return (
         <Wrapper>
             <Search />
-            {filtered.map(createItems)}
+            <Items>{filtered.map(createItems)}</Items>
         </Wrapper>
     )
 }
