@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import Player from './player'
-import Mini from './mini'
 import Navigator from './navigator/'
 import { GlobalStyles } from '../styles/globalStyles'
-import React, { useEffect } from 'react'
 import db from '../database'
 import data from '../data'
+import React, { useEffect, Suspense } from 'react'
+const Player = React.lazy(() => import('./player'))
+const Mini = React.lazy(() => import('./mini'))
 
 const AppWrapper = styled.div`
     width: 100vw;
@@ -50,8 +50,12 @@ function App() {
 
             <AppWrapper>
                 <Navigator />
-                <Player />
-                <Mini />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Player />
+                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Mini />
+                </Suspense>
             </AppWrapper>
         </>
     )
