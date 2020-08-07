@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import Navigator from './navigator/'
 import { GlobalStyles } from '../styles/globalStyles'
-import db from '../database'
-import data from '../data'
+//import db from '../database'
+//import data from '../data'
 import React, { useEffect, Suspense } from 'react'
 const Player = React.lazy(() => import('./player'))
 const Mini = React.lazy(() => import('./mini'))
@@ -16,11 +16,11 @@ const AppWrapper = styled.div`
 
 function App() {
     useEffect(() => {
-        saveMediaToBrowser(data, db)
+        //saveMediaToBrowser(data, db)
 
         window.focus()
     }, [])
-
+    /*
     async function saveMediaToBrowser(data, db) {
         const found = await db.audio.toArray((found) => {
             return found
@@ -43,7 +43,7 @@ function App() {
             }
         })
     }
-
+    */
     return (
         <>
             <GlobalStyles />

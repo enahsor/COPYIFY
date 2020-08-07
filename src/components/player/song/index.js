@@ -67,7 +67,7 @@ export default function Song({ song }) {
 
                 dispatch(set({ playerColor: colorHex }))
             } catch (err) {
-                console.log(`Something went wrong: ${err}`)
+                //DO SOMETHING
             }
         }
     }
