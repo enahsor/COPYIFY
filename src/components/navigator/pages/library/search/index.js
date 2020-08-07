@@ -89,6 +89,8 @@ export default function Search() {
                 </IconContainer>
 
                 <SearchBar
+                    title='Search for music in your library'
+                    id='searchbar'
                     type='text'
                     placeholder='Find in library'
                     onFocus={handleEvent}
