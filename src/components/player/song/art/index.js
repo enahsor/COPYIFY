@@ -25,7 +25,7 @@ export default function Art({ art, getColor, marginBottom }) {
     return (
         <Image
             marginBottom={marginBottom}
-            src={`${process.env.PUBLIC_URL}${art}${extension}`}
+            src={`${process.env.PUBLIC_URL}${art}_550${extension}`}
             alt={`music art cover`}
             draggable={false}
             ref={imageRef}

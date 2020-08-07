@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Image = styled.img`
-    width: 60px;
-    height: 60px;
-    max-width: 60px;
-    max-height: 60px;
+    width: 50px;
+    height: 50px;
+    max-width: 50px;
+    max-height: 50px;
     margin-right: 15px;
 `
 
